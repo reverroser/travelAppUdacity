@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/reverroser/travelAppUdacity#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
