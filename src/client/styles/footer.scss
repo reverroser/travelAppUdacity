@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin-top: 48px;
+    border-top: thin solid $border-color;
+    font-family: $secondary-font;
+}

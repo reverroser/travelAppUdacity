@@ -1,0 +1,9 @@
+@import './variables.scss';
+
+body,
+.results-container {
+ background: $white;
+ color: $main-font-color;
+ height: 100%;
+
+}

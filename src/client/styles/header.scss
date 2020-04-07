@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+.header {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    font-family: $secondary-font;
+    font-size: 14px;
+    padding: 0 24px;
+    border-bottom: thin solid $border-color;
+}
+
+.logo-container {
+    margin-right: auto;
+    font-size: 28px;
+    font-family: $logo-font;
+}
+
+.input-container{
+    text-align: right;
+}
