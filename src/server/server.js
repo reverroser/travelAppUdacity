@@ -1,10 +1,17 @@
-import express from 'express';
-const app = express();
+const path = require('path')
+const express = require('express')
+
+const port = 8000
+
+const app = express()
+
+// Initialize the main project folder
+app.use(express.static('dist'))
 
 app.get('/', function (req, res) {
-    res.send('Hello world!');
+    res.sendFile('dist/index.html')
 });
 
-app.listen(8000, function () {
-    console.log('app listening on port 5000!')
+app.listen(port, function () {
+    console.log(`app listening on port ${port}!`)
 });
