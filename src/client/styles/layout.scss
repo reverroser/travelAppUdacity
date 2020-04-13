@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+.container {
+    padding-bottom: 74px;
+
+    @media (min-width: $narrow-min-width) {
+        padding-bottom: 102px;
+    }
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 32px 0 24px;
+}
+
+.create-button {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+
+    @media (min-width: $narrow-min-width) {
+        bottom: 24px;
+        right: 24px; 
+    }
+}
