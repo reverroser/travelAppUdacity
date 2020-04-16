@@ -1,0 +1,53 @@
+.modal {
+    &:not(.datepicker-modal) {
+        flex-direction: column;
+        max-height: 100%;
+        width: 100%;
+        top: 0 !important;
+        bottom: 0 !important;
+        padding: 64px 48px 32px;
+
+        input {
+            font-size: 14px;
+        }
+
+        &.open {
+            display: flex !important;
+        }
+
+        .modal-content {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+
+            .modal-title {
+                padding-bottom: 30px;
+            }
+
+            .input-field {
+                margin-bottom: 32px;
+            }
+        }
+
+        .modal-footer {
+            margin-top: auto;
+
+            & > * {
+                margin-left: 12px;
+            }
+        }
+    }
+
+    .datepicker-table td.is-selected,
+    .datepicker-date-display{
+        background-color:$primary-color;
+        color: #ffffff !important;
+    }
+
+    .datepicker-table td.is-today,
+    .datepicker-cancel,
+    .datepicker-done{
+        color: $primary-color;
+    }
+}

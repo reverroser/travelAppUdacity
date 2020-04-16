@@ -10,3 +10,17 @@ body {
     height: 100%;
     margin: 0;
 }
+
+input {
+    &.valid,
+    &:focus {
+        border-bottom: $primary-color !important;
+        box-shadow: 0 1px 0 0 $primary-color !important;
+    }
+}
+
+label {
+    &.active {
+        color: $primary-color !important;
+    }
+}
