@@ -7,3 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const datePickers = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datePickers);
 });
+
+document.getElementById('save-trip-button').onclick = () => {
+    const destination = document.getElementById('destination').value;
+    const date = document.getElementById('date').value;
+    console.log(destination, date);
+}
+
