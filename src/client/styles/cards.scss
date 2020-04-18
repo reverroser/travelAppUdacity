@@ -1,8 +1,17 @@
 .card {
+    .card-image {
+        height: 300px;
+    }
+
     .card-title {
         font-size: 42px;
         font-weight: bold;
         margin-bottom: 8px;
+    }
+
+    .card-content {
+        display: flex;
+        align-items: center;
     }
 
     .trip-date {
@@ -12,6 +21,10 @@
             font-size: 32px;
             margin-bottom: 8px;
         }
+    }
+
+    .trip-weather {
+        margin-left: auto;
     }
 
     .delete-btn {

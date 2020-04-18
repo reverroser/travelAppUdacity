@@ -3,10 +3,11 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const dotenv = require('dotenv')
 const express = require('express');
+const { v1: uuidv1 } = require('uuid');
 
 const app = express();
 const port = 8000;
-const trips = [];
+let trips = [];
 
 // Routes
 const mainRoute = '/';
@@ -31,15 +32,16 @@ function initWebClient(req, res) {
 }
 
 function getTrips(req, res) {
-    res.send(trips);
+    res.json(trips);
 }
 
-async function postTrips(req, res) {
+async function postTrip(req, res) {
     const { date, destination } = req.body;
     const encodedDestination = encodeURIComponent(destination);
 
     try {
         let trip = {
+            id: uuidv1(),
             date,
             destination,
         };
@@ -59,10 +61,18 @@ async function postTrips(req, res) {
 
         trips.push(trip);
 
-        res.send(trips);
+        res.json(trip);
     } catch (error) {
         res.status(400).send(error);
     }
+}
+
+function deleteTrip(req, res) {
+    const newTrips = trips.filter(({ id }) => id !== req.query.id);
+    trips = newTrips;
+    res.json({
+        id: req.query.id
+    });
 }
 
 // Main
@@ -70,7 +80,8 @@ app.get(mainRoute, initWebClient);
 
 // Trips
 app.get(tripsRoute, getTrips);
-app.post(tripsRoute, postTrips);
+app.post(tripsRoute, postTrip);
+app.delete(tripsRoute, deleteTrip);
 
 app.listen(port, function () {
     console.log(`app listening on port ${port}!`)
