@@ -1,9 +1,18 @@
-// Local js
-import './js/app.js';
+import { register } from 'register-service-worker';
 
-// Materialize css
+// MaterializeCss
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 
-// Local styles
+import initApp from './js/app.js';
+
 import './styles/main.scss';
+
+window.onload = () => {
+    initApp();
+    register('/service-worker.js', {
+        ready() {
+            console.log('Service worker is active.')
+        },
+    });
+}

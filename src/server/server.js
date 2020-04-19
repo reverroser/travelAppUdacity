@@ -51,12 +51,11 @@ async function postTrip(req, res) {
         trip.imageURL = hits[0].webformatURL;
 
         // Get destination coords
-        // UNCOMMENT - api is not working right now
-        // const { data: { geonames } } = await axios.get(`http://api.geonames.org/searchJSON?q=${encodedDestination}&maxRows=10&fuzzy=0.8&username=${process.env.GEONAMES_USERNAME}`);
-        // const { lat, lng } = geonames[0];
+        const { data: { geonames } } = await axios.get(`http://api.geonames.org/searchJSON?q=${encodedDestination}&maxRows=10&fuzzy=0.8&username=${process.env.GEONAMES_USERNAME}`);
+        const { lat, lng } = geonames[0];
 
         // Get destination weather
-        const { data: { data } } = await axios.get(`https://api.weatherbit.io/v2.0/current?city=${encodedDestination}&key=${process.env.WEATHERBIT_API_KEY}`);
+        const { data: { data } } = await axios.get(`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&key=${process.env.WEATHERBIT_API_KEY}`);
         trip.weather = data[0].weather;
 
         trips.push(trip);
