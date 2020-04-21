@@ -77,6 +77,11 @@ export const createTrip = async () => {
 }
 
 export const loadTrips = async () => {
-    const { data } = await axios.get(tripsEndpoint);
-    data.forEach(renderTrip);
+    try {
+        const { data } = await axios.get(tripsEndpoint);
+        data.forEach(renderTrip);
+        return Promise.resolve(data);
+    } catch (error) {
+        return Promise.reject(error);
+    }
 }
