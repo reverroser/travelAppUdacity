@@ -36,9 +36,8 @@ app.get(tripsRoute, function (req, res) {
 });
 
 app.post(tripsRoute, async function (req, res) {
-    const { date, destination } = req.body;
     try {
-        const trip = await tripsHelper.postTrip({ date, destination });
+        const trip = await tripsHelper.postTrip(req.body);
         res.json(trip);
     } catch (error) {
         res.status(400).send(error)

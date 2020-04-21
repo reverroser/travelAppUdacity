@@ -14,12 +14,12 @@ const deleteTrip = async (id, tripEl) => {
         tripEl.remove();
         M.toast({ html: 'Trip removed succesfully' })
     } catch (error) {
-        M.toast({ html: 'Error deleting trip' })
+        M.toast({ html: 'Error deleting trip, try again later' })
     }
 };
 
 const renderTrip = async ({ date, destination, id, imageURL, weather }, i) => {
-    const weatherIcon = await import(`../assets/weatherIcons/${weather.icon}.png`);
+    const weatherIcon = weather ? await import(`../assets/weatherIcons/${weather.icon}.png`) : 'a01d';
 
     const tripHTML = `
         <div class="col s12 m6">
@@ -72,7 +72,7 @@ export const createTrip = async () => {
         createTripModalInstance.close();
         M.toast({ html: 'Trip created succesfully' })
     } catch (error) {
-        M.toast({ html: 'Error creating trip' })
+        M.toast({ html: 'Error! Enter valid date and destination' })
     }
 }
 

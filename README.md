@@ -24,7 +24,7 @@ The client displays a grid of trips showing the full information that the server
 
 - Open the terminal on the project's folder
 - run `npm start`
-- Open in your browser http://localhost:8080/
+- Open in your browser http://localhost:8000/
 
 ## Build
 
