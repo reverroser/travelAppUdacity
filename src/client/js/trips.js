@@ -54,7 +54,7 @@ const renderTrip = async ({ date, destination, id, imageURL, weather }, i) => {
     const tripEl = document.createElement('div');
     tripEl.innerHTML = tripHTML;
     tripsContainer.appendChild(tripEl);
-    document.getElementById(`deleteTrip${i}`).onclick = () => deleteTrip(id, tripEl);
+    document.getElementById(`deleteTrip${i}`).onclick = ((tripId, el) => () => deleteTrip(tripId, el))(id, tripEl);
 };
 
 export const createTrip = async () => {
@@ -70,6 +70,9 @@ export const createTrip = async () => {
         });
         renderTrip(data);
         createTripModalInstance.close();
+        // Reset form values
+        document.getElementById('destination').value = null;
+        document.getElementById('date').value = null;
         M.toast({ html: 'Trip created succesfully' })
     } catch (error) {
         M.toast({ html: 'Error! Enter valid date and destination' })
