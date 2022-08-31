@@ -29,7 +29,7 @@
     "html-webpack-plugin": "^4.0.4",
     "jest": "^25.4.0",
     "materialize-css": "^1.0.0-rc.2",
-    "moment-timezone": "^0.5.28",
+    "moment-timezone": "^0.5.35",
     "register-service-worker": "^1.7.1",
     "uuid": "^7.0.3"
   },
